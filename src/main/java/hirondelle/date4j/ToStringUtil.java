@@ -3,9 +3,6 @@ package hirondelle.date4j;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -116,7 +113,7 @@ final class ToStringUtil {
    <P> If <tt>aSpecialClass</tt> and <tt>aMethodName</tt> are <tt>null</tt>, then the 
    behavior is exactly the same as calling {@link #getText}.
   */
-  static String getTextAvoidCyclicRefs(Object aObject, Class aSpecialClass, String aMethodName) {
+  static String getTextAvoidCyclicRefs(Object aObject, Class<?> aSpecialClass, String aMethodName) {
     StringBuilder result = new StringBuilder();
     addStartLine(aObject, result);
 
@@ -143,7 +140,7 @@ final class ToStringUtil {
   
   private static final String fGET = "get";
   private static final Object[] fNO_ARGS = new Object[0];
-  private static final Class[] fNO_PARAMS = new Class[0];
+  private static final Class<?>[] fNO_PARAMS = new Class<?>[0];
   /*
    Previous versions of this class indented the data within a block. 
    That style breaks when one object references another. The indentation
@@ -179,7 +176,7 @@ final class ToStringUtil {
    returns a value whose class is not the native class, is not a method of 
    <tt>Object</tt>.
   */
-  private static boolean isContributingMethod(Method aMethod, Class aNativeClass){
+  private static boolean isContributingMethod(Method aMethod, Class<?> aNativeClass){
     boolean isPublic = Modifier.isPublic( aMethod.getModifiers() );
     boolean hasNoArguments = aMethod.getParameterTypes().length == 0;
     boolean hasReturnValue = aMethod.getReturnType() != Void.TYPE;
@@ -202,7 +199,7 @@ final class ToStringUtil {
     Object aObject,
     Method aMethod,
     StringBuilder aResult,
-    Class aCircularRefClass, 
+    Class<?> aCircularRefClass, 
     String aCircularRefMethodName
   ){
     aResult.append(fINDENT);
@@ -256,7 +253,7 @@ final class ToStringUtil {
     return result;
   }
   
-  private static Method getMethodFromName(Class aSpecialClass, String aMethodName){
+  private static Method getMethodFromName(Class<?> aSpecialClass, String aMethodName){
     Method result = null;
     try {
       result = aSpecialClass.getMethod(aMethodName, fNO_PARAMS);
@@ -277,7 +274,7 @@ final class ToStringUtil {
     );
   }
   
-  private static void vomit(Class aSpecialClass, String aMethodName){
+  private static void vomit(Class<?> aSpecialClass, String aMethodName){
     fLogger.severe(
       "Reflection fails to get no-arg method named: " +
       Util.quote(aMethodName) +
@@ -294,49 +291,5 @@ final class ToStringUtil {
     }
     return result;
   }
-  
-  /*
-   Two informal classes with cyclic references, used for testing. 
-  */
-  private static final class Ping {
-    public void setPong(Pong aPong){fPong = aPong; }
-    public Pong getPong(){ return fPong; }
-    public Integer getId() { return new Integer(123); }
-    public String getUserPassword(){ return "blah"; }
-    public String toString() {
-      return getText(this);
-    }
-    private Pong fPong;
-  }
-  private static final class Pong {
-    public void setPing(Ping aPing){ fPing = aPing; }
-    public Ping getPing() { return fPing; }
-    public String toString() {
-      return getTextAvoidCyclicRefs(this, Ping.class, "getId");
-      //to see the infinite looping, use this instead :
-      //return getText(this);
-    }
-    private Ping fPing;
-  }
-  
-  /**
-   Informal test harness.
-  */
-  public static void main (String... args) {
-    List<String> list = new ArrayList<String>();
-    list.add("blah");
-    list.add("blah");
-    list.add("blah");
-    System.out.println( ToStringUtil.getText(list) );
-    
-    StringTokenizer parser = new StringTokenizer("This is the end.");
-    System.out.println( ToStringUtil.getText(parser) );
-    
-    Ping ping = new Ping();
-    Pong pong = new Pong();
-    ping.setPong(pong);
-    pong.setPing(ping);
-    System.out.println( ping );
-    System.out.println( pong );
-  }
+
 }

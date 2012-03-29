@@ -4,15 +4,15 @@ import hirondelle.date4j.DateTime.DayOverflow;
 import junit.framework.TestCase;
 
 /** JUnit tests. */
-public class TESTDateTimeInterval extends TestCase {
+public class TESTDateTimeIntervalTest extends TestCase {
 
   /** Run the test cases.  */
   public static void main(String args[]) {
-    String[] testCaseName = { TESTDateTimeInterval.class.getName() };
+    String[] testCaseName = { TESTDateTimeIntervalTest.class.getName() };
     junit.textui.TestRunner.main(testCaseName);
   }
 
-  public TESTDateTimeInterval( String aName) {
+  public TESTDateTimeIntervalTest( String aName) {
     super(aName);
   }
 
@@ -298,7 +298,7 @@ public class TESTDateTimeInterval extends TestCase {
   private void testRange(boolean aSuccess, int aYearIncr, int aMonthIncr, int aDayIncr, int aHourIncr, int aMinIncr, int aSecIncr){
     DateTime from = new DateTime("0001-02-28 11:23:56.0");
     try { 
-      DateTime result = from.plus(aYearIncr, aMonthIncr, aDayIncr, aHourIncr, aMinIncr, aSecIncr, DateTime.DayOverflow.LastDay);
+      from.plus(aYearIncr, aMonthIncr, aDayIncr, aHourIncr, aMinIncr, aSecIncr, DateTime.DayOverflow.LastDay);
       if(!aSuccess){
         fail();
       }
@@ -331,7 +331,7 @@ public class TESTDateTimeInterval extends TestCase {
   private void testDayOverflowAbort(boolean aShouldAbort, String aInput,  int aYearIncr, int aMonthIncr, int aDayIncr, int aHourIncr, int aMinIncr, int aSecIncr){
     DateTime from = new DateTime(aInput);
     try { 
-       DateTime result = from.plus(aYearIncr, aMonthIncr, aDayIncr, aHourIncr, aMinIncr, aSecIncr, DayOverflow.Abort);
+      from.plus(aYearIncr, aMonthIncr, aDayIncr, aHourIncr, aMinIncr, aSecIncr, DayOverflow.Abort);
       if(aShouldAbort){
         fail();
       }

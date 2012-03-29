@@ -239,7 +239,7 @@ final class ModelUtil {
    return instances of <tt>aSpecialClass</tt>, then call <tt>aMethodName</tt> on such instances, 
    instead of <tt>toString()</tt>.
   */
-  static String toStringAvoidCyclicRefs(Object aObject, Class aSpecialClass, String aMethodName) {
+  static String toStringAvoidCyclicRefs(Object aObject, Class<?> aSpecialClass, String aMethodName) {
     return ToStringUtil.getTextAvoidCyclicRefs(aObject, aSpecialClass, aMethodName);
   }  
   

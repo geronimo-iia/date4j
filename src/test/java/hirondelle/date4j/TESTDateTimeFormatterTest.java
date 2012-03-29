@@ -10,15 +10,15 @@ import java.util.Locale;
 import junit.framework.TestCase;
 
 /** JUnit tests. */
-public final class TESTDateTimeFormatter   extends TestCase   {
+public final class TESTDateTimeFormatterTest   extends TestCase   {
 
   /** Run the test cases.  */
   public static void main(String args[]) {
-    String[] testCaseName = { TESTDateTimeFormatter.class.getName() };
+    String[] testCaseName = { TESTDateTimeFormatterTest.class.getName() };
     junit.textui.TestRunner.main(testCaseName);
   }
 
-  public TESTDateTimeFormatter(String aName) {
+  public TESTDateTimeFormatterTest(String aName) {
     super(aName);
   }
 
@@ -34,7 +34,8 @@ public final class TESTDateTimeFormatter   extends TestCase   {
     //.063 - slower than my classes - at least in this simple test
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     Date result = format.parse(dateTime);
-     String dateResurrected = format.format(result);
+     @SuppressWarnings("unused")
+	String dateResurrected = format.format(result);
   }
   
   public void testDate(){

@@ -5,15 +5,15 @@ import java.util.TimeZone;
 import junit.framework.TestCase;
 
 /** JUnit tests. */
-public final class TESTDateTime  extends TestCase  {
+public final class TESTDateTimeTest  extends TestCase  {
 
   /** Run the test cases.  */
   public static void main(String args[]) {
-    String[] testCaseName = { TESTDateTime.class.getName() };
+    String[] testCaseName = { TESTDateTimeTest.class.getName() };
     junit.textui.TestRunner.main(testCaseName);
   }
 
-  public TESTDateTime( String aName) {
+  public TESTDateTimeTest( String aName) {
     super(aName);
   }
 
@@ -462,10 +462,12 @@ public final class TESTDateTime  extends TestCase  {
   
   public void testNow(){
     TimeZone tz = TimeZone.getTimeZone("America/Halifax");
-    DateTime now = DateTime.now(tz);
+    @SuppressWarnings("unused")
+	DateTime now = DateTime.now(tz);
     //log(now);
 
-    DateTime today = DateTime.today(tz);
+    @SuppressWarnings("unused")
+	DateTime today = DateTime.today(tz);
     //log(today);
     
     DateTime future = new DateTime("2500-01-31");
@@ -595,13 +597,14 @@ public final class TESTDateTime  extends TestCase  {
   private static final boolean LESS = true;
   private static final boolean MORE = false;
   
-  private static void log(Object aThing){
+  @SuppressWarnings("unused")
+private static void log(Object aThing){
     System.out.println(String.valueOf(aThing));
   }
   
   private void testStandardFormatCtorSuccess(String aDate){
     try {
-       DateTime dateTime = new DateTime(aDate);
+	 new DateTime(aDate);
     }
     catch (Throwable ex){
       fail("Cannot construct using standard format: " + Util.quote(aDate));
@@ -659,7 +662,7 @@ public final class TESTDateTime  extends TestCase  {
   
   private void testStandardFormatCtorFail(String aDate){
     try {
-      DateTime dateTime = new DateTime(aDate);
+      new DateTime(aDate);
       fail("Expected failure didn't happen.");
     }
     catch (Throwable ex){
@@ -757,7 +760,7 @@ public final class TESTDateTime  extends TestCase  {
     }
     else {
       try {
-       int dayOfWeek = dt.getWeekDay();
+        dt.getWeekDay();
         fail("Expected failure");
       }
       catch(RuntimeException ex){
@@ -921,7 +924,7 @@ public final class TESTDateTime  extends TestCase  {
   private void testChangeTimeZoneFails(String aForDate, String aExpected, TimeZone aFrom, TimeZone aTo){
     DateTime from = new DateTime(aForDate);
     try {
-      DateTime actual = from.changeTimeZone(aFrom, aTo);
+      from.changeTimeZone(aFrom, aTo);
       fail();
     }
     catch(RuntimeException ex){
