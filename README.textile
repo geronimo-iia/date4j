@@ -68,4 +68,36 @@ dt.changeTimeZone(fromOneTimeZone, toAnotherTimeZone);
 </code></pre>
 
 
+h1. Maven Integration
+
+
+Add a new dependency on your project
+<pre><code>
+<dependency>
+	<groupId>hirondelle</groupId>
+	<artifactId>date4j</artifactId>
+	<version>1.2.1</version>
+</dependency>
+</code></pre>
+
+Add repository
+<pre><code>
+<repositories>
+	<repository>
+		<id>intelligents-ia-releases</id>
+		<name>Intelligents-ia releases repository</name>
+		<url>http://mvn.intelligents-ia.com/releases</url>
+		<releases>
+			<enabled>true</enabled>
+		</releases>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+	</repository>
+</repositories>
+</code></pre>
+
+
+
+
 
