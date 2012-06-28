@@ -33,7 +33,7 @@ Recommendations for using date4j :
 h1. Examples
 
 
-You could find more example in source "Examples.java":src/main/java/hirondelle/date4j/Examples.java
+You could find more example in source "Examples.java":date4j-import/blob/master/src/main/java/hirondelle/date4j/Examples.java
 
 h2. simple examples of using date4j's DateTime class
 
