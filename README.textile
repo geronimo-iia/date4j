@@ -1,0 +1,30 @@
+h1. Overview
+
+Date4j came from Hirondelle Systems, "http://www.date4j.net/":http://www.date4j.net/ and his under License BSD (http://www.date4j.net/LICENSE_BSD.txt)
+
+It's an alternative to Date, Calendar, and related Java classes. The JDK's treatment of dates is likely the single most suctorial aspect of the Java core libraries. It needs improvement.
+
+The main goals of date4j are :
+  * easy manipulation of dates/times in the Gregorian calendar (the civil calendar used in almost all countries).
+  * easy storage and retrieval of such dates/times from a relational database.
+  * a simplified model of civil timekeeping, similar to the model used by many databases.
+
+
+h1. Java's Date Classes Must Die.
+
+The date4j tool chooses to focus on how databases can store dates and times in a simple style (without time zone/offset), and not on modeling the arcane details of civil timekeeping.
+In summary :
+
+its public API consists of a single public class called DateTime. That class is immutable.
+it doesn't store any time zone information. Most date-times are stored in columns whose type does not include time zone information (see note above).
+it ignores all non-linearities: summer-hours, leap seconds, and the cutover from Julian to Gregorian calendars.
+its precision matches the highest precision used by databases (nanosecond).
+it uses only the proleptic Gregorian Calendar, over the years 1..9999.
+it has (very basic) support for wonky dates, such as the magic value 0000-00-00 used by MySQL.
+it lets you choose among 4 policies for 'day overflow' conditions during calculations.
+Recommendations for using date4j :
+
+in your code, use date4j's DateTime to model date-time information.
+in your database, use columns having data types which do not attempt to manage time zones for you.
+if implicit time zones are sufficient for your users, consider not using your database at all for any time zone storage, or related calculations.
+if implicit time zones are not sufficient for your users, then roll your own solution, and store them in a column of their own, separate from the date-time. (To be normalized, such a solution would usually require construction of a simple time zone table, to store some or all of the time zone identifiers known to Java - 'America/Montreal', 'Asia/Jakarta', and so on.)

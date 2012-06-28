@@ -51,21 +51,24 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	<!-- ******************************************************************* -->
+	<!-- DISTRIBUTION -->
+	<!-- ******************************************************************* -->
 	<distributionManagement>
 		<repository>
-			<id>hirondelle-releases</id>
-			<url>file:./repository/releases</url>
+			<id>intelligents-ia-releases</id>
+			<url>ftp://ftp.lost-oasis.net/web-mvn.intelligents-ia.com/htdocs/releases</url>
 		</repository>
 		<snapshotRepository>
-			<id>hirondelle-snapshot</id>
-			<url>file:./repository/snapshots</url>
+			<id>intelligents-ia-snapshot</id>
+			<url>ftp://ftp.lost-oasis.net/web-mvn.intelligents-ia.com/htdocs/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<repositories>
 		<repository>
-			<id>hirondelle-releases</id>
-			<name>hirondelle releases repository On github</name>
-			<url>https://github.com/geronimo-iia/date4j-import.git/repository/releases</url>
+			<id>intelligents-ia-releases</id>
+			<name>Intelligents-ia releases repository</name>
+			<url>http://mvn.intelligents-ia.com/releases</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -74,9 +77,9 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>hirondelle-snapshot</id>
-			<name>hirondelle snapshot repository On github</name>
-			<url>https://github.com/geronimo-iia/date4j-import.git/repository/snapshots</url>
+			<id>intelligents-ia-snapshot</id>
+			<name>Intelligents-ia snapshot repository</name>
+			<url>http://mvn.intelligents-ia.com/snapshots</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>
