@@ -4,7 +4,7 @@
 	<artifactId>date4j</artifactId>
 	<packaging>jar</packaging>
 	<name>date4j</name>
-	<version>1.2.1</version>
+	<version>1.2.2-SNAPSHOT</version>
 	<description>DATE4J is a simple alternative to the standard JDK date classes. It was created by Hirondelle Systems (John O'Hanley).</description>
 	<url>http://www.date4j.net/</url>
 	<developers>
