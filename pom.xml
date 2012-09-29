@@ -21,6 +21,10 @@
 			<url>http://www.date4j.net/LICENSE_BSD.txt</url>
 		</license>
 	</licenses>
+	<scm>
+		<connection>scm:git:https://github.com/geronimo-iia/date4j-import.git</connection>
+		<url>https://github.com/geronimo-iia/date4j-import.git</url>
+	</scm>
 	<organization>
 		<name>Hirondelle Systems</name>
 		<url>http://www.web4j.com/</url>
