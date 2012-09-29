@@ -87,12 +87,8 @@ Add repository
 		<id>intelligents-ia-releases</id>
 		<name>Intelligents-ia releases repository</name>
 		<url>http://mvn.intelligents-ia.com/releases</url>
-		<releases>
-			<enabled>true</enabled>
-		</releases>
-		<snapshots>
-			<enabled>false</enabled>
-		</snapshots>
+		<releases><enabled>true</enabled></releases>
+		<snapshots><enabled>false</enabled></snapshots>
 	</repository>
 </repositories>
 </code></pre>
