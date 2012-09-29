@@ -72,30 +72,26 @@ h1. Maven Integration
 
 
 Add a new dependency on your project
-<pre><code>
-
-<dependency>
-	<groupId>hirondelle</groupId>
-	<artifactId>date4j</artifactId>
-	<version>1.2.1</version>
-</dependency>
-
-</code></pre>
+<pre>
+&lt;dependency&gt;
+	&lt;groupId&gt;hirondelle&lt;/groupId&gt;
+	&lt;artifactId&gt;date4j&lt;/artifactId&gt;
+	&lt;version&gt;1.2.1&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
 
 Add repository
-<pre><code>
-
-<repositories>
-	<repository>
-		<id>intelligents-ia-releases</id>
-		<name>Intelligents-ia releases repository</name>
-		<url>http://mvn.intelligents-ia.com/releases</url>
-		<releases><enabled>true</enabled></releases>
-		<snapshots><enabled>false</enabled></snapshots>
-	</repository>
-</repositories>
-
-</code></pre>
+<pre>
+&lt;repositories&gt;
+	&lt;repository&gt;
+		&lt;id&gt;intelligents-ia-releases&lt;/id&gt;
+		&lt;name&gt;Intelligents-ia releases repository&lt;/name&gt;
+		&lt;url&gt;http://mvn.intelligents-ia.com/releases&lt;/url&gt;
+		&lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/releases&gt;
+		&lt;snapshots&gt;&lt;enabled&gt;false&lt;/enabled&gt;&lt;/snapshots&gt;
+	&lt;/repository&gt;
+&lt;/repositories&gt;
+</pre>
 
 
 
