@@ -1,5 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.intelligents-ia</groupId>
+		<artifactId>intelligents-ia</artifactId>
+		<version>1.4.6</version>
+	</parent>
 	<groupId>hirondelle</groupId>
 	<artifactId>date4j</artifactId>
 	<packaging>jar</packaging>
@@ -28,6 +34,9 @@
 		<name>Hirondelle Systems</name>
 		<url>http://www.web4j.com/</url>
 	</organization>
+	<!-- ******************************************************************* -->
+	<!-- DEPENDENCIES -->
+	<!-- ******************************************************************* -->
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -36,57 +45,9 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>2.3.2</version>
-					<configuration>
-						<source>1.6</source>
-						<target>1.6</target>
-						<encoding>UTF-8</encoding>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-resources-plugin</artifactId>
-					<version>2.5</version>
-					<configuration>
-						<encoding>UTF-8</encoding>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-release-plugin</artifactId>
-					<version>2.2.2</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-ftp</artifactId>
-				<version>2.2</version>
-			</extension>
-		</extensions>
-	</build>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 	<!-- ******************************************************************* -->
-	<!-- DISTRIBUTION -->
+	<!-- ONE REPOSITORY to rule them all -->
 	<!-- ******************************************************************* -->
-	<distributionManagement>
-		<repository>
-			<id>intelligents-ia-releases</id>
-			<url>ftp://ftp.lost-oasis.net/web-mvn.intelligents-ia.com/htdocs/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>intelligents-ia-snapshot</id>
-			<url>ftp://ftp.lost-oasis.net/web-mvn.intelligents-ia.com/htdocs/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
 	<repositories>
 		<repository>
 			<id>intelligents-ia-releases</id>
@@ -99,40 +60,5 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<repository>
-			<id>intelligents-ia-snapshot</id>
-			<name>Intelligents-ia snapshot repository</name>
-			<url>http://mvn.intelligents-ia.com/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
 	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>intelligents-ia-releases</id>
-			<name>Intelligents-ia releases repository</name>
-			<url>http://mvn.intelligents-ia.com/releases</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>intelligents-ia-snapshot</id>
-			<name>Intelligents-ia snapshot repository</name>
-			<url>http://mvn.intelligents-ia.com/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
 </project>
